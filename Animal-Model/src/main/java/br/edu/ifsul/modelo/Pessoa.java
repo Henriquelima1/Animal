@@ -58,8 +58,8 @@ public class Pessoa implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -80,6 +80,8 @@ public class Pessoa implements Serializable{
         }
         return true;
     }
+
+    
 
     
 

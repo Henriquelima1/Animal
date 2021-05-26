@@ -1,0 +1,4 @@
+br\edu\ifsul\testes\TestePersistirPessoa.class
+br\edu\ifsul\testes\TestePersistirAnimal.class
+br\edu\ifsul\modelo\Pessoa.class
+br\edu\ifsul\modelo\Animal.class
