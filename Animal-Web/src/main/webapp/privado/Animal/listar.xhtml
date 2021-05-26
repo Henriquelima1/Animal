@@ -74,17 +74,18 @@
                                          size="50" maxlength="50"
                                          placeholder="Obrigatório"/>
                            
-                            <p:outputLabel value="Pessoa" for="selectPessoa"/>
-                            <p:selectOneMenu value="#{controleAnimal.objeto.pessoa}"
+                          <p:outputLabel value="Pessoa" for="selectPessoa"/>
+                          <p:selectOneMenu value="#{controleAnimal.objeto.pessoa}"
                                              id="selectPessoa"
                                              filter="true"
                                              filterMatchMode="startsWith">
                                 <f:selectItem noSelectionOption="true"
-                                              itemLabel="Selecione um Pessoa"/>
+                                              itemLabel="Selecione uma Pessoa"/>
                                 <f:converter binding="#{converterPessoa}"/>
-                                <f:selectItems value="#{controleAnimal.PessoaDao.listaTodos}"
-                                               var="ace" itemLabel="#{ace.descricao}"/>
-                            
+                                <f:selectItems value="#{controleAnimal.pessoaDao.listaTodos}"
+                                               var="ace" itemLabel="#{ace.nome}"/>
+                                
+                            </p:selectOneMenu>
                         </p:panelGrid>
                     </div>
                     <p:panel>
@@ -97,6 +98,7 @@
                         </div>
                     </p:panel>
                 </h:form>
+                <ui:include src="/templates/ajaxstatus.xhtml"/>
             </p:dialog>
         </ui:define>
     </ui:composition>

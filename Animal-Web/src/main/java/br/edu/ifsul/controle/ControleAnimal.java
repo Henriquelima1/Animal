@@ -27,15 +27,9 @@ public class ControleAnimal implements Serializable{
     private AnimalDao<Animal> dao;
     private Animal objeto;
      @EJB
-    private PessoaDao<Pessoa> daoPessoa;
+    private PessoaDao<Pessoa> PessoaDao;
 
-    public PessoaDao<Pessoa> getDaoPessoa() {
-        return daoPessoa;
-    }
-
-    public void setDaoPessoa(PessoaDao<Pessoa> daoPessoa) {
-        this.daoPessoa = daoPessoa;
-    }
+ 
     
     
     public ControleAnimal(){
@@ -45,17 +39,25 @@ public class ControleAnimal implements Serializable{
     public String listar(){
         return "/privado/Animal/listar?faces-redirect=true";
     }
-     public String Cadastro(){
-        return "/privado/Animal/formulario?faces-redirect=true";
-    }
+    
     
     public void novo(){
+        Util.mensagemInformacao("entrou3");
         objeto = new Animal();
+    }
+
+    public PessoaDao<Pessoa> getPessoaDao() {
+        return PessoaDao;
+    }
+
+    public void setPessoaDao(PessoaDao<Pessoa> PessoaDao) {
+        this.PessoaDao = PessoaDao;
     }
     
     public void alterar(Object id){
         try {
             objeto = dao.getObjectByID(id);
+            Util.mensagemInformacao("entrou");
         } catch (Exception e){
             Util.mensagemInformacao("Erro ao recuperar objeto: " + Util.getMensagemErro(e));
         }
@@ -73,9 +75,12 @@ public class ControleAnimal implements Serializable{
     
     public void salvar(){
         try {
+            Util.mensagemInformacao("entrou??");
             if (objeto.getId() == null){
+                Util.mensagemInformacao("vazio");
                 dao.persist(objeto);
             } else {
+                Util.mensagemInformacao("entrou2");
                 dao.merge(objeto);
             }
             Util.mensagemInformacao("Objeto persistido com sucesso!");
