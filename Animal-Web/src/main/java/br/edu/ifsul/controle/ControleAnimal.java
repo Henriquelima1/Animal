@@ -57,7 +57,7 @@ public class ControleAnimal implements Serializable{
     public void alterar(Object id){
         try {
             objeto = dao.getObjectByID(id);
-            Util.mensagemInformacao("entrou");
+            
         } catch (Exception e){
             Util.mensagemInformacao("Erro ao recuperar objeto: " + Util.getMensagemErro(e));
         }
@@ -75,12 +75,12 @@ public class ControleAnimal implements Serializable{
     
     public void salvar(){
         try {
-            Util.mensagemInformacao("entrou??");
+            
             if (objeto.getId() == null){
-                Util.mensagemInformacao("vazio");
+                
                 dao.persist(objeto);
             } else {
-                Util.mensagemInformacao("entrou2");
+                
                 dao.merge(objeto);
             }
             Util.mensagemInformacao("Objeto persistido com sucesso!");
